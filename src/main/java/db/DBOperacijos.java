@@ -1,9 +1,8 @@
 package db;
 
+
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Random;
 
 public class DBOperacijos {
@@ -28,6 +27,27 @@ public class DBOperacijos {
       e.printStackTrace();
     }
   }
+  public void atvaizduoti(){
+
+    String sakinysSQL = "select * from zaidimas";
+    try {
+      PreparedStatement preparedStatement = connection.prepareStatement(sakinysSQL);
+      ResultSet rs = preparedStatement.executeQuery();
+
+      while (rs.next()){
+        System.out.println(
+            rs.getInt(1)+
+            rs.getString(2)+
+            rs.getString("platforma"));
+      }
+
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+  }
+
 
 
 }

@@ -14,12 +14,12 @@ public class Main {
     List<String> description = new ArrayList<>();
 
     Zaidimas cs = new CS(
-        "First person shooter",
+        "Third person shooter",
         Platforma.PC,
         description);
 
     dbOperacijos.insert(cs.getZanras(), cs.getPlatforma().name());
-
+    dbOperacijos.atvaizduoti();
 
 
 
