@@ -21,6 +21,13 @@ public class Main {
     dbOperacijos.insert(cs.getZanras(), cs.getPlatforma().name());
     dbOperacijos.atvaizduoti();
 
+    System.out.println("Zanru sarasas!");
+    System.out.println("-----------------------------------------------");
+  for (String elem: dbOperacijos.getZanrai()){
+    System.out.println(elem);
+  }
+
+
 
 
 

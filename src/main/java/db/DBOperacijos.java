@@ -1,14 +1,16 @@
 package db;
 
 
+import com.mysql.cj.protocol.Resultset;
+
 import javax.swing.*;
 import java.sql.*;
-import java.util.Random;
+import java.util.*;
 
 public class DBOperacijos {
 
   private PrisijungimasDB prisijungimasDB;
-  private Connection connection;
+  private Connection connection; // null
 
   public void insert(String zanras, String platforma){
     prisijungimasDB = new PrisijungimasDB();
@@ -27,6 +29,32 @@ public class DBOperacijos {
       e.printStackTrace();
     }
   }
+
+  public List<String> getZanrai(){
+
+    prisijungimasDB = new PrisijungimasDB();
+    connection = prisijungimasDB.prisijungti();
+
+    List<String> zanrai = new ArrayList<>();
+    //language=MySQL
+    String sql = "select distinct zanras from zaidimas";
+    try {
+      PreparedStatement preparedStatement = connection.prepareStatement(sql);
+      ResultSet rs = preparedStatement.executeQuery();
+      while (rs.next()){
+        zanrai.add(rs.getString(1));
+      }
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+
+    return zanrai;
+  }
+
+
+
   public void atvaizduoti(){
 
     String sakinysSQL = "select * from zaidimas";
@@ -40,7 +68,6 @@ public class DBOperacijos {
             rs.getString(2)+
             rs.getString("platforma"));
       }
-
 
     } catch (SQLException e) {
       e.printStackTrace();
