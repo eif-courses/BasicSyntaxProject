@@ -13,18 +13,35 @@ public class Zaidimas {
     this.papildoma_informacija = papildoma_informacija;
   }
 
+  /**
+   * @see {@link java.util.Scanner}
+   * @return zanras tai zaidimo zanras
+   */
   public String getZanras() {
     return zanras;
   }
 
+  /**
+   *
+   * @param zanras jeigu rpg zaidimas bus greitai atsibostantis
+   */
   public void setZanras(String zanras) {
     this.zanras = zanras;
   }
 
+  /**
+   * <h1>Gausite Zaidimo Platforma</h1>
+   * @return platforma
+   */
   public Platforma getPlatforma() {
     return platforma;
   }
 
+  /**
+   * @deprecated sitas metodas atgyvenes ir bus pakeistas i
+   * @param platforma
+   */
+  @Deprecated
   public void setPlatforma(Platforma platforma) {
     this.platforma = platforma;
   }

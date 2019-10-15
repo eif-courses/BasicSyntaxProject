@@ -13,6 +13,12 @@ public class DBOperacijos {
   private PrisijungimasDB prisijungimasDB;
   private Connection connection; // null
 
+  /**
+   *
+   * @param zanras tai zadimo zanras.
+   * @param platforma zaidimo platforma
+   * @throws NetinkamasZanrasRuntimeException zanras RPG yra neleistinas
+   */
   public void insert(String zanras, String platforma) throws NetinkamasZanrasRuntimeException {
 
     if(zanras.equals("RPG")){
